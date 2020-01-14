@@ -1,13 +1,12 @@
 class Engine {
     constructor(context) {
         this.ctx = context;
-
-		this.urlsCodigo = {
-			g: "fondo"
-		}
-
+		
+		this.map = {};
+		
 		this.urls = {
-			fondo: "https://i.imgur.com/fqG34pO.png",
+			pasto: "https://i.imgur.com/fqG34pO.png",
+			agua: "https://i.imgur.com/4BZGw0M.png",
 			personaje: "https://i.imgur.com/ucwvhlh.png",
 			arbol: "https://i.imgur.com/wIK2b9P.png",
 			cartel: "https://i.imgur.com/NXIjxr8.png"
@@ -72,15 +71,20 @@ class Engine {
 	async cargarImagenes() {
 		for (let nombreUrl in this.urls) {
 			const url = this.urls[nombreUrl]
-			
-			let img = await this.cargarImagen(url)
+			const img = await this.cargarImagen(url)
 			this.imagenes[nombreUrl] = img
 		}
 		
 	}
 	
+	async cargarMapa() {
+		const response = await fetch("/maps/city.json");
+		this.map = await response.json();
+	}
+	
 	async inicializar() {
 		await this.cargarImagenes()
+		await this.cargarMapa()
 		await this.dibujarFondo()
 		this.dibujarResto()
 		this.iniciarTeclas()
@@ -93,29 +97,40 @@ class Engine {
 	}
 	
 	async dibujarFondo() {
-		const response = await fetch("http://localhost:5000/map/city.json", {mode: 'cors'});
-		const result = await response.json();
-		
-		for (let y = 0; y < this.mapSize.y; y++) 
-			for (let x = 0; x < this.mapSize.x; x++)  {
-				let img = result[x][y]
-				this.ctx.background.drawImage(this.imagenes[this.urlsCodigo[img]], x, y);
+		for (let y = 0; y < this.mapSize.y; y += this.tileSize) {
+			for (let x = 0; x < this.mapSize.x; x += this.tileSize) {
+				let i = y / this.tileSize
+				let j = x / this.tileSize
+				
+				let img = this.map[i][j]
+				
+				this.ctx.background.drawImage(this.imagenes[img.background], x, y);
 			}
+		}
 	}
 	
 	dibujarPersonaje() {
-		this.ctx.foreground.drawImage(this.imagenes.personaje, this.personaje.pos.x, this.personaje.pos.y);
+		this.ctx.foreground.drawImage(this.imagenes.personaje, this.personaje.pos.x, this.personaje.pos.y, 32, 32);
 	}
 	
 	dibujarEntorno() {
-		this.ctx.foreground.drawImage(this.imagenes.arbol, this.arbol.pos.x, this.arbol.pos.y, 32, 32);
-		this.ctx.foreground.drawImage(this.imagenes.cartel, this.cartel.pos.x, this.cartel.pos.y);
-
-		this.ctx.foreground.font = "20pt Calibri";
-		this.ctx.foreground.textAlign = "start";
-		this.ctx.foreground.textBaseline = "bottom";
-		this.ctx.foreground.fillStyle = "#ffffff";
-		this.ctx.foreground.fillText(this.textoCartel, this.cartel.pos.x + this.getPosicion(1), this.cartel.pos.y + this.getPosicion(2));
+		for (let y = 0; y < this.mapSize.y; y += this.tileSize) {
+			for (let x = 0; x < this.mapSize.x; x += this.tileSize) {
+				let i = y / this.tileSize
+				let j = x / this.tileSize
+				
+				let tile = this.map[i][j]
+				
+				if (tile.hasOwnProperty('foreground')) {
+					this.ctx.foreground.drawImage(this.imagenes[tile.foreground], x, y);
+				}
+				if (tile.hasOwnProperty('texto')) {
+					this.ctx.foreground.font = tile.texto.fuente; 
+					this.ctx.foreground.fillStyle = tile.texto.color; 
+					this.ctx.foreground.fillText(tile.texto.texto, x, y);
+				}
+			}
+		}
 	}
 	
 	clearCanvas() {
@@ -124,13 +139,16 @@ class Engine {
 	
 	iniciarTeclas() {
 		document.addEventListener("keydown", e => {
+			let prevmoy = this.personaje.pos.y
+			let prevmox = this.personaje.pos.x
+
 			switch (e.keyCode) {
 				case this.keys.arrowUp:
 					if (this.personaje.pos.y - this.tileSize >= 0)
 						this.personaje.pos.y -= this.tileSize;
 					break;
 				case this.keys.arrowDown:
-					if (this.personaje.pos.y + (2 * this.tileSize) < this.mapSize.y)
+					if (this.personaje.pos.y + (this.tileSize) < this.mapSize.y)
 						this.personaje.pos.y += this.tileSize;
 					break;
 				case this.keys.arrowLeft:
@@ -144,11 +162,23 @@ class Engine {
 				default:
 					break;
 			}
+
+			let i = this.personaje.pos.y / this.tileSize
+			let j = this.personaje.pos.x / this.tileSize
 			
-			console.log(this.personaje.pos.x)
-			console.log(this.personaje.pos.y)
-			
-			this.dibujarResto()
+			console.log(i)
+			console.log(j)
+
+			let tile = this.map[i][j]
+
+			console.log(tile)
+
+			if (!tile.hasOwnProperty('bloqueado') || !tile.bloqueado) {
+				this.dibujarResto()
+			} else {
+				this.personaje.pos.y = prevmoy
+				this.personaje.pos.x = prevmox
+			}
 		});
 	}
 	

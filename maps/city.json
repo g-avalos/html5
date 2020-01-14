@@ -1,0 +1,379 @@
+[
+    [
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        }
+    ],
+    [
+        {
+            "background": "pasto",
+			"foreground": "arbol"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        }
+    ],
+    [
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        }
+    ],
+    [
+        {
+            "background": "pasto"
+		},
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto",
+			"foreground": "cartel"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        }
+    ],
+    [
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        }
+    ],
+    [
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto",
+			"texto": {
+				"fuente" : "20pt Calibri",
+				"color": "white",
+				"texto": "Hola!"
+			}
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        }
+    ],
+    [
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        }
+    ],
+    [
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        }
+    ],
+    [
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        }
+    ],
+    [
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        },
+        {
+            "background": "agua",
+            "bloqueado": "true"
+        }
+    ],
+    [
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        },
+        {
+            "background": "pasto"
+        }
+    ]
+]
